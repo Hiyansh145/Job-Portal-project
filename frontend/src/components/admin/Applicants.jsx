@@ -15,7 +15,7 @@ const Applicants = () => {
   useEffect(()=>{
     const fetchAllApplicants = async () => {
       try {
-        const res = await axios.get(`https://job-portal-project-2-7ve1.onrender.com/api/v1/application/${params.id}/applicants`,{withCredentials:true});
+        const res = await axios.get(`${APPLICATION_API_ENDPOINT}/${params.id}/applicants`,{withCredentials:true});
           dispatch(setAllApplicants(res.data.job));
         
       } catch (error) {

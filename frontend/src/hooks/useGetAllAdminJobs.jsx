@@ -9,7 +9,7 @@ const useGetAllAdminJobs = () => {
     useEffect(()=>{
         const fetchAllAdminJobs = async ()=>{
             try {
-                const res = await axios.get(`https://job-portal-project-2-7ve1.onrender.com/api/v1/job/getadminjobs`,{withCredentials:true});
+                const res = await axios.get(`${JOB_API_ENDPOINT}/getadminjobs`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setAllAdminJobs(res.data.jobs));
                 }
