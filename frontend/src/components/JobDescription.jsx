@@ -20,7 +20,7 @@ const JobDescription = () => {
   const dispatch = useDispatch();
   const appliedJobHandler = async () => {
         try {
-          const res = await axios.get(`${APPLICATION_API_ENDPOINT}/apply/${jobId}`,{withCredentials:true});
+          const res = await axios.get(`https://job-portal-project-2-7ve1.onrender.com/api/v1/application/apply/${jobId}`,{withCredentials:true});
           if(res.data.success){
             setIsApplied(true);
             const updatedSingleJob = {...singleJob,appcations:[...singleJob.applications,{applicant:user?._id}]};
@@ -35,7 +35,7 @@ const JobDescription = () => {
   useEffect(()=>{
         const fetchSingleJob = async ()=>{
             try {
-                const res = await axios.get(`${JOB_API_ENDPOINT}/get/${jobId}`,{withCredentials:true});
+                const res = await axios.get(`https://job-portal-project-2-7ve1.onrender.com/api/v1/job/get/${jobId}`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setSingleJob(res.data.job));
                     setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id))

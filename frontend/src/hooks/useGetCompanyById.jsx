@@ -9,7 +9,7 @@ const useGetCompanyById = (companyId) => {
     useEffect(()=>{
         const fetchSingleCompany = async ()=>{
             try {
-                const res = await axios.get(`${COMPANY_API_ENDPOINT}/get/${companyId}`,{withCredentials:true});
+                const res = await axios.get(`https://job-portal-project-2-7ve1.onrender.com/api/v1/company/get/${companyId}`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setSingleCompany(res.data.company));
                 }
